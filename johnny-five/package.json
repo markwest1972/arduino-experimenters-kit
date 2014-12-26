@@ -1,0 +1,8 @@
+{
+  "name": "mode-ardx",
+  "version": "0.0.1",
+  "description": "Arduino Experimenters kit - Johnny-Five",
+  "dependencies": {
+    "johnny-five": "^0.8.29"
+  }
+}
