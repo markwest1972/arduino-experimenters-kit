@@ -2,16 +2,21 @@ var five = require("johnny-five"),
 board, myServo;
 board = new five.Board();
 board.on("ready", function() {
-  myServo = new five.Servo(9);
 
-  board.repl.inject({
-    servo: myServo
+  tiltServo = new five.Servo({
+    pin: 12,
+    range: [ 45, 125 ],
+    startAt: 85
   });
 
-  myServo.sweep();
+  panServo = new five.Servo({
+    pin: 13,
+    range: [ 45, 135 ],
+    startAt: 90
+  });
 
-  this.wait(5000, function(){
-    myServo.stop();
-    myServo.center();
+  board.repl.inject({
+    tilt: tiltServo,
+    pan: panServo
   });
 });
